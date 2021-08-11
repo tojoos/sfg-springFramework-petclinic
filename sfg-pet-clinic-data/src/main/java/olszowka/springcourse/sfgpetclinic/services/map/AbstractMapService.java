@@ -4,7 +4,7 @@ import olszowka.springcourse.sfgpetclinic.model.BaseEntity;
 
 import java.util.*;
 
-public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
+public abstract class AbstractMapService<T extends BaseEntity> {
 
     protected Map<Long, T> map = new HashMap<>();
 
@@ -12,7 +12,7 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
         return new HashSet<>(map.values());
     }
 
-    T findById(ID id) {
+    T findById(Long id) {
         return map.get(id);
     }
 
@@ -28,7 +28,7 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
         return object;
     }
 
-    void deleteById(ID id) {
+    void deleteById(Long id) {
         map.remove(id);
     }
 
