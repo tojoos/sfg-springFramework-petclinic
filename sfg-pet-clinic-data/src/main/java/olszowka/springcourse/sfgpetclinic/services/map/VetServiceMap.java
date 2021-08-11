@@ -1,11 +1,11 @@
 package olszowka.springcourse.sfgpetclinic.services.map;
 
 import olszowka.springcourse.sfgpetclinic.model.Vet;
-import olszowka.springcourse.sfgpetclinic.services.CrudService;
+import olszowka.springcourse.sfgpetclinic.services.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
