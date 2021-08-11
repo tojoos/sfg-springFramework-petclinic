@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/owners")
 @Controller
 public class OwnerController {
-
     private final OwnerService ownerService;
 
     //@Autowired <- automatically by Spring Framework

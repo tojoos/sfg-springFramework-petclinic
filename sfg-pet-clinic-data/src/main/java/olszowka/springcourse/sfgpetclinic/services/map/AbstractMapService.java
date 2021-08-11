@@ -5,7 +5,6 @@ import olszowka.springcourse.sfgpetclinic.model.BaseEntity;
 import java.util.*;
 
 public abstract class AbstractMapService<T extends BaseEntity> {
-
     protected Map<Long, T> map = new HashMap<>();
 
     Set<T> findAll() {

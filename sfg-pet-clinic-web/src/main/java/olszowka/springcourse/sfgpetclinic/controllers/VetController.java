@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class VetController {
-
     private final VetService vetService;
 
     //@Autowired <- Spring will take care of that

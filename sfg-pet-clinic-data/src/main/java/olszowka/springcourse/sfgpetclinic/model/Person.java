@@ -1,7 +1,6 @@
 package olszowka.springcourse.sfgpetclinic.model;
 
 public class Person extends BaseEntity{
-
     private String firstName;
     private String secondName;
 
