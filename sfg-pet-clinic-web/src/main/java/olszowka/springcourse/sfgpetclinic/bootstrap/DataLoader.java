@@ -4,8 +4,6 @@ import olszowka.springcourse.sfgpetclinic.model.Owner;
 import olszowka.springcourse.sfgpetclinic.model.Vet;
 import olszowka.springcourse.sfgpetclinic.services.OwnerService;
 import olszowka.springcourse.sfgpetclinic.services.VetService;
-import olszowka.springcourse.sfgpetclinic.services.map.OwnerServiceMap;
-import olszowka.springcourse.sfgpetclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,9 +13,10 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    //@Autowired - not required
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
