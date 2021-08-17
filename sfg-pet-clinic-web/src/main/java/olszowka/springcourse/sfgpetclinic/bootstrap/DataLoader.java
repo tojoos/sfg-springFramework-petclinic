@@ -1,8 +1,10 @@
 package olszowka.springcourse.sfgpetclinic.bootstrap;
 
 import olszowka.springcourse.sfgpetclinic.model.Owner;
+import olszowka.springcourse.sfgpetclinic.model.PetType;
 import olszowka.springcourse.sfgpetclinic.model.Vet;
 import olszowka.springcourse.sfgpetclinic.services.OwnerService;
+import olszowka.springcourse.sfgpetclinic.services.PetTypeService;
 import olszowka.springcourse.sfgpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -12,15 +14,25 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
     //@Autowired - not required
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+        PetType dog = new PetType();
+        dog.setName("Dog");
+        PetType savedDogPetType = petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        dog.setName("Cat");
+        PetType savedCatPetType = petTypeService.save(cat);
+
         Owner owner1 = new Owner();
         owner1.setFirstName("Jan");
         owner1.setSecondName("Kowalski");
