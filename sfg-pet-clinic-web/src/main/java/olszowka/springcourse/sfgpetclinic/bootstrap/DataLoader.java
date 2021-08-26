@@ -1,10 +1,7 @@
 package olszowka.springcourse.sfgpetclinic.bootstrap;
 
 import olszowka.springcourse.sfgpetclinic.model.*;
-import olszowka.springcourse.sfgpetclinic.services.OwnerService;
-import olszowka.springcourse.sfgpetclinic.services.PetTypeService;
-import olszowka.springcourse.sfgpetclinic.services.SpecialityService;
-import olszowka.springcourse.sfgpetclinic.services.VetService;
+import olszowka.springcourse.sfgpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,13 +14,15 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
     //@Autowired - not required
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -114,5 +113,14 @@ public class DataLoader implements CommandLineRunner {
         vetService.save(vet3);
 
         System.out.println("Loading owners...");
+
+        Visit visit1 = new Visit();
+        visit1.setPet(pet2);
+        visit1.setDate(LocalDate.now());
+        visit1.setDescription("Just regular cat visit.");
+
+        visitService.save(visit1);
+
+        System.out.println("Loading visits...");
     }
 }
