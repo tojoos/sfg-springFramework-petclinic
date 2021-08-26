@@ -4,11 +4,13 @@ import olszowka.springcourse.sfgpetclinic.model.Speciality;
 import olszowka.springcourse.sfgpetclinic.model.Vet;
 import olszowka.springcourse.sfgpetclinic.services.SpecialityService;
 import olszowka.springcourse.sfgpetclinic.services.VetService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class VetServiceMap extends AbstractMapService<Vet> implements VetService {
     private final SpecialityService specialityService;
 
