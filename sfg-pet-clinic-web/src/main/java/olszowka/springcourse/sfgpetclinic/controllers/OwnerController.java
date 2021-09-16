@@ -1,6 +1,5 @@
 package olszowka.springcourse.sfgpetclinic.controllers;
 
-import olszowka.springcourse.sfgpetclinic.model.Owner;
 import olszowka.springcourse.sfgpetclinic.services.OwnerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
