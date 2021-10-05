@@ -46,7 +46,7 @@ public class OwnerController {
             owner.setSecondName("");
         }
 
-        List<Owner> ownersFound = ownerService.findAllBySecondNameLike(owner.getSecondName());
+        List<Owner> ownersFound = ownerService.findAllBySecondNameLike("%" + owner.getSecondName() + "%");
 
         if(ownersFound.isEmpty()) {
             result.rejectValue("secondName", "notFound", "not found");
