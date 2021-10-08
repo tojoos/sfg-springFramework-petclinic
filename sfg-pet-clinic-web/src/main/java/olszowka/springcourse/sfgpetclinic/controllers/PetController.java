@@ -52,10 +52,15 @@ public class PetController {
 
     @PostMapping("/new")
     public String processCreateNewPetForm(@Valid Pet pet, Owner owner, BindingResult result, Model model) {
+        //todo  - validation
+//        if(StringUtils.hasLength(pet.getName()) && pet.isNew() && owner.getPets().contains(pet)) {
+//
+//        }
         if(result.hasErrors()) {
             model.addAttribute("pet", pet);
             return "pets/createOrAddPetForm";
         } else {
+            pet.setOwner(owner);
             Pet savedPet = petService.save(pet);
             owner.getPets().add(savedPet);
             return "redirect:/owners/" + owner.getId();
@@ -74,6 +79,7 @@ public class PetController {
             model.addAttribute("pet", pet);
             return "pets/createOrAddPetForm";
         } else {
+            pet.setOwner(owner);
             Pet savedPet = petService.save(pet);
             owner.getPets().add(savedPet);
             return "redirect:/owners/" + owner.getId();
