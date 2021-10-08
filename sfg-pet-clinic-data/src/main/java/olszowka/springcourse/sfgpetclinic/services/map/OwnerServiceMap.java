@@ -8,6 +8,7 @@ import olszowka.springcourse.sfgpetclinic.services.PetTypeService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -74,5 +75,11 @@ public class OwnerServiceMap extends AbstractMapService<Owner> implements OwnerS
                 .filter(o -> o.getSecondName().equalsIgnoreCase(secondName))
                 .findFirst()
                 .orElse(null);
+    }
+
+    @Override
+    public List<Owner> findAllBySecondNameLike(String secondName) {
+        //todo - not used currently. (DATAJPA is usage)
+        return null;
     }
 }

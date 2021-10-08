@@ -36,10 +36,12 @@ public class DataLoader implements CommandLineRunner {
 
     private void loadData() {
         PetType dog = new PetType();
+        dog.setId(1L);
         dog.setName("Dog");
         PetType savedDogPetType = petTypeService.save(dog);
 
         PetType cat = new PetType();
+        cat.setId(2L);
         cat.setName("Cat");
         PetType savedCatPetType = petTypeService.save(cat);
 
@@ -88,6 +90,15 @@ public class DataLoader implements CommandLineRunner {
         owner2.getPets().add(pet2);
 
         ownerService.save(owner2);
+
+        Owner owner3 = new Owner();
+        owner3.setFirstName("Marian");
+        owner3.setSecondName("Kowalski");
+        owner3.setAddress("66");
+        owner3.setCity("Tychy");
+        owner3.setTelephone("1267823582");
+
+        ownerService.save(owner3);
 
         System.out.println("Loading vets...");
 
