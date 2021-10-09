@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+
+<body>
+    <h2 th:with="text=${visit.isNew()} ? 'Add Visit' : 'Edit Visit'" th:text="${text}">Visit</h2>
+    <b>Pet</b>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Birth Date</th>
+            <th>Type</th>
+            <th>Owner</th>
+        </tr>
+        </thead>
+        <tr>
+            <td th:text="${pet.name}">Name</td>
+            <td th:text="${#temporals.format(pet.birthDate, 'yyyy-MM-dd')}">Date</td>
+            <td th:text="${pet.petType.name}">Type</td>
+            <td th:text="${pet.owner.firstName + ' ' + pet.owner.secondName}">Owner</td>
+        </tr>
+    </table>
+
+    <br/>
+
+    <form th:object="${visit}" class="form-horizontal" method="post">
+        <input type="hidden" name="id" th:value="*{id}"/>
+        <div class="form-group has-feedback">
+            <input th:replace="~{fragments/inputField :: input('Description', 'description', 'text')}">
+            <input th:replace="~{fragments/inputField :: input('Date', 'date', 'date')}">
+        </div>
+        <div class="col-sm-offset-2 col-sm-10">
+            <button class="btn btn-default" type="submit"
+                    th:with="text = ${visit['new']} ? 'Add Visit' : 'Edit Visit'" th:text="${text}">Add Visit</button>
+        </div>
+    </form>
+
+    <br/>
+    <br/>
+    <br/>
+
+    <b>Other visits</b>
+    <table class="table table-striped">
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+            </tr>
+        <tr th:if="${!visit.isNew()}" th:each="visit : ${pet.visits}">
+            <td th:text="${#temporals.format(visit.date, 'yyyy-MM-dd')}">Date</td>
+            <td th:text="${visit.description}">Description</td>
+        </tr>
+    </table>
+</body>
+</html>
