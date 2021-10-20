@@ -5,13 +5,12 @@
         <groupId>Olszowka.springCourse</groupId>
         <version>0.0.3-SNAPSHOT</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>sfg-pet-clinic-web</artifactId>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
         <!-- Web dependencies -->
         <webjars-bootstrap.version>3.3.6</webjars-bootstrap.version>
         <webjars-jquery-ui.version>1.12.1</webjars-jquery-ui.version>
@@ -81,7 +80,6 @@
                 <executions>
                     <execution>
                         <phase>generate-resources</phase>
-                        <?m2e execute onConfiguration,onIncremental?>
                         <goals>
                             <goal>run</goal>
                         </goals>

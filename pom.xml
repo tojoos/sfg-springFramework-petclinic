@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <groupId>Olszowka.springCourse</groupId>
+    <artifactId>sfg-pet-clinic</artifactId>
+    <version>0.0.3-SNAPSHOT</version>
+
     <packaging>pom</packaging>
+
     <modules>
         <module>sfg-pet-clinic-data</module>
         <module>sfg-pet-clinic-web</module>
     </modules>
+
+    <name>spring-petclinic</name>
+    <description>Pet Clinic Application Clone</description>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.5.3</version>
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
-    <groupId>Olszowka.springCourse</groupId>
-    <artifactId>sfg-pet-clinic</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
-    <name>sfg-springFramework-petclinic</name>
-    <description>Demo project for Spring Boot</description>
+
     <properties>
-        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>11</java.version>
+        <jaxb.version>2.3.0</jaxb.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
 
     <build>
